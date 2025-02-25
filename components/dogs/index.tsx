@@ -3,6 +3,7 @@
 import { Dog } from '@/utils/interfaces'
 import DogListCard from './dog-list-card'
 import Link from 'next/link'
+import { Dog as DogIcon } from 'lucide-react'
 
 const DogsList = ({
   dogs,
@@ -26,13 +27,20 @@ const DogsList = ({
   return (
     <div className='flex flex-wrap justify-around gap-4'>
       {filteredDogs.length > 0 ? (
-        filteredDogs.map((dog, index) => (
-          <Link href={`/dog/${index}`} key={index}>
-            <DogListCard dog={dog} />
-          </Link>
-        ))
+        filteredDogs.map((dog) => {
+          const originalIndex = dogs.findIndex((d) => d === dog)
+
+          return (
+            <Link href={`/dog/${originalIndex}`} key={originalIndex}>
+              <DogListCard dog={dog} />
+            </Link>
+          )
+        })
       ) : (
-        <p className='text-center text-white'>No dogs found.</p>
+        <div className='flex flex-col items-center'>
+          <DogIcon className='h-16 w-16' />
+          <p className=''>No dogs found.</p>
+        </div>
       )}
     </div>
   )
