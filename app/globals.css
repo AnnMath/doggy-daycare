@@ -7,6 +7,8 @@
   --color-primary: var(--primary);
   --color-success: var(--success);
   --color-danger: var(--danger);
+  --color-success-light: var(--success-light);
+  --color-danger-light: var(--danger-light);
 }
 
 /*
@@ -32,4 +34,6 @@
   --primary: oklch(61.71% 0.0801 227.44);
   --success: oklch(62.87% 0.139 156.58);
   --danger: oklch(58.23% 0.1779 349.77);
+  --success-light: oklch(84.07% 0.0419 150.73);
+  --danger-light: oklch(83.63% 0.0606 346.94);
 }

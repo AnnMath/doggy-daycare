@@ -3,7 +3,6 @@ import { Mars, Venus } from 'lucide-react'
 import Image from 'next/image'
 
 const DogListCard = ({ dog }: { dog: Dog }) => {
-  // remember to wrap in a link
   return (
     <section
       className={`font-inter ${dog.present === true ? 'border-success' : 'border-danger'} flex h-96 w-xs flex-col gap-2 border-8 bg-slate-50`}
