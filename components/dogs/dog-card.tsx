@@ -8,7 +8,6 @@ import {
   ChevronLeft,
   ChevronFirst,
   ChevronRight,
-  CircleChevronLeft,
   ArrowLeft,
 } from 'lucide-react'
 

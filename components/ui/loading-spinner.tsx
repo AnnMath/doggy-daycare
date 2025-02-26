@@ -1,9 +1,11 @@
-import { LoaderCircle } from 'lucide-react'
+import { Dog, LoaderCircle } from 'lucide-react'
 
 const LoadingSpinner = () => {
   return (
-    <div className='w-full'>
-      <LoaderCircle className='mx-auto h-72 w-72 animate-spin text-gray-400/50' />
+    <div className='text-primary flex h-screen w-full flex-col items-center justify-center'>
+      <Dog className='h-24 w-24' />
+      <LoaderCircle className='mx-auto h-72 w-72 animate-spin' />
+      <p className='text-2xl'>Loading doggos...</p>
     </div>
   )
 }

@@ -24,7 +24,7 @@ const DogListCard = ({ dog }: { dog: Dog }) => {
         <h2 className='text-3xl font-bold'>{dog.age} y/o</h2>
       </div>
       <p className='mt-auto p-2'>
-        OWNER: {dog.owner.name} {dog.owner.lastName}
+        OWNER: {dog.owner?.name} {dog.owner?.lastName}
       </p>
     </section>
   )

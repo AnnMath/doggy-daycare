@@ -34,12 +34,13 @@ const Dogs = () => {
         OUR DOGS
       </h1>
       <div className='mx-14 mb-8 flex justify-between text-gray-800 sm:mx-8'>
-        <div className='bg-primary flex items-center rounded-md'>
+        <div className='bg-primary flex items-center rounded-md text-white'>
           <Search className='h-[1.5em] p-1 text-white' />
+          <p className='text-xs'>Search</p>
           <input
             type='text'
-            placeholder='Search name or breed'
-            className='bg-primary rounded-md p-2 text-xs text-white'
+            placeholder='Name or breed'
+            className='bg-primary w-30 rounded-md p-2 text-xs text-white'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
