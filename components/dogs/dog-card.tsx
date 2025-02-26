@@ -1,3 +1,4 @@
+'use client'
 import { Dog } from '@/utils/interfaces'
 import Image from 'next/image'
 import ToggleSwitch from '@/components/ui/toggle-switch'
@@ -10,6 +11,7 @@ import {
   ChevronRight,
   ArrowLeft,
 } from 'lucide-react'
+import { useDogs } from '@/utils/dogProvider'
 
 const DogDetails = ({
   label,
@@ -45,17 +47,11 @@ const NavigationLink = ({
   </Link>
 )
 
-const DogCard = ({
-  currentDog,
-  allDogs,
-  id,
-}: {
-  currentDog: Dog
-  allDogs: Dog[]
-  id: number
-}) => {
+const DogCard = ({ currentDog, id }: { currentDog: Dog; id: number }) => {
+  const { dogs, togglePresence } = useDogs()
   const firstDog = id === 0
-  const lastDog = id === allDogs.length - 1
+  const lastDog = id === dogs.length - 1
+
   return (
     <article className='relative mx-auto flex h-screen max-w-md flex-col bg-white'>
       <Link href='/dogs'>
@@ -73,7 +69,12 @@ const DogCard = ({
         <h1 className='text-4xl font-bold uppercase'>{currentDog.name}</h1>
         <div>
           <p className='mb-0.5 self-center text-xs font-light'>Is present</p>
-          <ToggleSwitch checked={currentDog.present} />
+          <ToggleSwitch
+            checked={dogs[id].present}
+            onToggle={() => {
+              togglePresence(id)
+            }}
+          />
         </div>
       </div>
       <section className='grid grid-cols-2 gap-y-3 p-3'>
@@ -96,7 +97,7 @@ const DogCard = ({
           icon={ChevronLeft}
         />
         <p>
-          {id + 1} of {allDogs.length}
+          {id + 1} of {dogs.length}
         </p>
         <NavigationLink
           href={`/dog/${id + 1}`}
@@ -104,7 +105,7 @@ const DogCard = ({
           icon={ChevronRight}
         />
         <NavigationLink
-          href={`/dog/${allDogs.length - 1}`}
+          href={`/dog/${dogs.length - 1}`}
           disabled={lastDog}
           icon={ChevronLast}
         />

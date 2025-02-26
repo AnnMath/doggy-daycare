@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
 import SearchDogs from '../utils/search'
 import FilterDogs from '../utils/filter'
-import { Dog } from '@/utils/interfaces'
 import DogsList from '.'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useDogs } from '@/utils/dogProvider'
 
-const DogsListWrapper = ({ dogs }: { dogs: Dog[] }) => {
+const DogsListWrapper = () => {
+  const { dogs } = useDogs()
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()

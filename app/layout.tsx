@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import DogProviderWrapper from '@/utils/dogProviderWrapper'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${inter.variable} bg-background`}>{children}</body>
+      <body className={`${inter.variable} bg-background`}>
+        <DogProviderWrapper>{children}</DogProviderWrapper>
+      </body>
     </html>
   )
 }

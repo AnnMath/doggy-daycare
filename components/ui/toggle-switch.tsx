@@ -1,13 +1,19 @@
-const ToggleSwitch = ({ checked }: { checked: boolean }) => {
+const ToggleSwitch = ({
+  checked,
+  onToggle,
+}: {
+  checked: boolean
+  onToggle: () => void
+}) => {
   return (
     <>
       <label className='flex cursor-pointer items-center select-none'>
         <div className='relative'>
           <input
             type='checkbox'
-            readOnly
             checked={checked}
             className='sr-only'
+            onChange={onToggle}
           />
           <div
             className={`h-8 w-14 rounded-full border-1 border-gray-300 ${
