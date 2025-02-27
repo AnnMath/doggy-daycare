@@ -12,6 +12,7 @@ import {
   ArrowLeft,
 } from 'lucide-react'
 import { useDogs } from '@/utils/dogProvider'
+import { useRouter } from 'next/navigation'
 
 const DogDetails = ({
   label,
@@ -22,9 +23,7 @@ const DogDetails = ({
 }) => (
   <div>
     <p className='font-semibold'>{label}:</p>
-    <p className={`${value !== 'iheartdogs@doggos.com' ? 'capitalize' : ''}`}>
-      {value}
-    </p>
+    <p className={`${label !== 'Email' ? 'capitalize' : ''}`}>{value}</p>
   </div>
 )
 
@@ -52,11 +51,13 @@ const DogCard = ({ currentDog, id }: { currentDog: Dog; id: number }) => {
   const firstDog = id === 0
   const lastDog = id === dogs.length - 1
 
+  const router = useRouter()
+
   return (
     <article className='relative mx-auto flex h-screen max-w-md flex-col bg-white'>
-      <Link href='/dogs'>
+      <button onClick={() => router.back()}>
         <ArrowLeft className='sm absolute top-4 left-4 h-6 w-6 rounded-full bg-gray-700/50 p-1 text-white/70' />
-      </Link>
+      </button>
       <Image
         src={currentDog.img}
         alt=''

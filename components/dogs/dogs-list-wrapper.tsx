@@ -35,7 +35,7 @@ const DogsListWrapper = () => {
 
   return (
     <>
-      <div className='mx-14 mb-8 flex justify-between text-gray-800 sm:mx-8'>
+      <div className='mx-3 mb-8 flex justify-between text-gray-800 sm:mx-8 md:mx-auto md:w-2/3'>
         <SearchDogs
           search={search}
           setSearch={(value) => updateSearchParams('search', value)}

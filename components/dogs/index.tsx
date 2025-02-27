@@ -41,7 +41,7 @@ const DogsList = ({
 
   return (
     <>
-      <div className='flex flex-wrap justify-around gap-4'>
+      <div className='mx-auto grid grid-cols-1 justify-items-center gap-y-12 sm:grid-cols-2 md:grid-cols-2 lg:w-3/4 lg:grid-cols-2 xl:grid-cols-3'>
         {paginatedDogs.length > 0 ? (
           paginatedDogs.map((dog) => {
             const originalIndex = dogs.findIndex((d) => d === dog)
@@ -53,7 +53,7 @@ const DogsList = ({
             )
           })
         ) : (
-          <div className='flex flex-col items-center'>
+          <div className='col-span-full flex w-full flex-col items-center'>
             <DogIcon className='h-16 w-16' />
             <p className=''>No dogs found.</p>
           </div>

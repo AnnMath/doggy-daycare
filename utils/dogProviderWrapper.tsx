@@ -24,9 +24,11 @@ const DogProviderWrapper = ({ children }: { children: React.ReactNode }) => {
     getDogs()
   }, [])
 
-  if (!dogs) {
+  if (loading) {
     return <LoadingSpinner />
   }
+
+  if (!dogs) return <p>Could not load dogs</p>
 
   return <DogProvider initialDogs={dogs}>{children}</DogProvider>
 }
