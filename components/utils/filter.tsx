@@ -9,7 +9,7 @@ const FilterDogs = ({
 }) => {
   return (
     <div className='bg-primary flex items-center rounded-md px-1 text-xs text-white'>
-      <Filter className='h-[1.5em] p-1 text-white' />
+      <Filter className='h-[1.5em] p-0.5 text-white' />
       <select
         className=''
         value={

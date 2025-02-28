@@ -41,7 +41,7 @@ const DogsList = ({
 
   return (
     <>
-      <div className='mx-auto grid grid-cols-1 justify-items-center gap-y-12 sm:grid-cols-2 md:grid-cols-2 lg:w-3/4 lg:grid-cols-2 xl:grid-cols-3'>
+      <div className='mx-auto grid grid-cols-1 place-content-center justify-items-center gap-y-12 sm:grid-cols-2 md:grid-cols-2 lg:w-3/4 lg:grid-cols-2 xl:grid-cols-3'>
         {paginatedDogs.length > 0 ? (
           paginatedDogs.map((dog) => {
             const originalIndex = dogs.findIndex((d) => d === dog)
@@ -66,7 +66,7 @@ const DogsList = ({
             disabled={currentPage === 1}
           >
             <ChevronLeft
-              className={`${currentPage === 1 ? 'text-gray-500' : ''}`}
+              className={`${currentPage === 1 ? 'text-slate-700/40' : ''}`}
             />
           </button>
           <span>
@@ -77,7 +77,7 @@ const DogsList = ({
             disabled={currentPage === totalPages}
           >
             <ChevronRight
-              className={`${currentPage === totalPages ? 'text-gray-500' : ''}`}
+              className={`${currentPage === totalPages ? 'text-slate-700/40' : ''}`}
             />
           </button>
         </div>
